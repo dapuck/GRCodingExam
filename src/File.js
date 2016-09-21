@@ -13,7 +13,7 @@ class File {
       fs.readFile(filename, (err, data) => {
         if(err) 
           return reject(err);
-        let lines = data.split("\n");
+        let lines = data.toString().split("\n");
         for(let i = 0; i < lines.length; i++) {
           let line = lines[i].split(delimiter);
           this.rows.push({
