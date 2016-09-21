@@ -13,7 +13,17 @@ class File {
       fs.readFile(filename, (err, data) => {
         if(err) 
           return reject(err);
-        // split each line, create object, add to this.rows
+        let lines = data.split("\n");
+        for(let i = 0; i < lines.length; i++) {
+          let line = lines[i].split(delimiter);
+          this.rows.push({
+            lastname: line[0],
+            firstname: line[1],
+            gender: line[2],
+            favoritecolor: line[3],
+            dateofbirth: line[4]
+          });
+        }
         return resolve();
       });
     });
