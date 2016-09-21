@@ -13,16 +13,18 @@ class File {
       fs.readFile(filename, (err, data) => {
         if(err) 
           return reject(err);
-        let lines = data.toString().split("\n");
+        let lines = data.toString().split(/\r?\n/);
         for(let i = 0; i < lines.length; i++) {
           let line = lines[i].split(delimiter);
-          this.rows.push({
-            lastname: line[0],
-            firstname: line[1],
-            gender: line[2],
-            favoritecolor: line[3],
-            dateofbirth: line[4]
-          });
+          if(line.length === 5) {
+            this.rows.push({
+              lastname: line[0],
+              firstname: line[1],
+              gender: line[2],
+              favoritecolor: line[3],
+              dateofbirth: line[4]
+            });
+          }
         }
         return resolve();
       });
