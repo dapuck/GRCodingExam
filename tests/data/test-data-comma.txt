@@ -1,4 +1,4 @@
-McCall,Ian,M,9/21/1986
+McCall,Ian,M,red,9/21/1986
 Doe,Jane,F,blue,8/16/1984
 Lovelace,Ada,F,green,12/10/1815
 Wozniak,Steve,M,yellow,8/11/1950
