@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha tests --recursive"
   },
   "repository": {
     "type": "git",
@@ -18,5 +18,8 @@
   "homepage": "https://github.com/dapuck/GRCodingExam#readme",
   "dependencies": {
     "nomnom": "^1.8.1"
+  },
+  "devDependencies": {
+    "mocha": "^3.0.2"
   }
 }
