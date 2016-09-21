@@ -38,8 +38,41 @@ const expectedRows = [
     dateofbirth: "10/28/1955"
   }
 ];
+const expectedRowsSortByGender = [
+  {
+    lastname: "Doe",
+    firstname: "Jane",
+    gender: "F",
+    favoritecolor: "blue",
+    dateofbirth: "8/16/1984"
+  },{
+    lastname: "Lovelace",
+    firstname: "Ada",
+    gender: "F",
+    favoritecolor: "green",
+    dateofbirth: "12/10/1815"
+  },{
+    lastname: "Gates",
+    firstname: "William",
+    gender: "M",
+    favoritecolor: "beige",
+    dateofbirth: "10/28/1955"
+  },{
+    lastname: "McCall",
+    firstname: "Ian",
+    gender: "M",
+    favoritecolor: "red",
+    dateofbirth: "9/21/1986"
+  },{
+    lastname: "Wozniak",
+    firstname: "Steve",
+    gender: "M",
+    favoritecolor: "yellow",
+    dateofbirth: "8/11/1950"
+  }
+];
 
-describe("FileTest", () => {
+describe("File Load Test", () => {
   it("Initialize file.", () => {
     const file = new File();
     assert.deepEqual(file.rows, []);
@@ -64,5 +97,20 @@ describe("FileTest", () => {
     .then(() => {
       assert.deepEqual(file.rows, expectedRows);
     });
+  });
+});
+
+describe("File Sort Test", () => {
+  const file = new File();
+  
+  before(() => {
+    return file.load("./tests/data/test-data-pipe.txt","|");
+  });
+  it("Sort by Gender.", () => {
+    assert.deepEqual(file.sortBy("gender"),expectedRowsSortByGender);
+  });
+  it("Sort by Birth Date.", () => {
+  });
+  it("Sort by Last Name, descending.", () => {
   });
 });
