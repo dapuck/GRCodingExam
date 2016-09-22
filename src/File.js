@@ -35,12 +35,16 @@ class File {
     field = field.toLowerCase();
     switch(field) {
       case "gender":
-        return this._sortByGender();
+        this._sortByGender();
+        break;
       case "birthdate":
-        return this._sortByBirthDate();
+        this._sortByBirthDate();
+        break;
       case "lastname":
-        return this._sortByLastName();
+        this._sortByLastName();
+        break;
     }
+    return Array.from(this.rows);
   }
   
   _sortByGender() {
