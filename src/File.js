@@ -15,20 +15,24 @@ class File {
           return reject(err);
         let lines = data.toString().split(/\r?\n/);
         for(let i = 0; i < lines.length; i++) {
-          let line = lines[i].split(delimiter);
-          if(line.length === 5) {
-            this.rows.push({
-              lastname: line[0],
-              firstname: line[1],
-              gender: line[2],
-              favoritecolor: line[3],
-              dateofbirth: line[4]
-            });
-          }
+          this.addRow(lines[i]);
         }
         return resolve();
       });
     });
+  }
+  
+  addRow(str,delimiter) {
+    let line = str.split(delimiter);
+    if(line.length === 5) {
+      this.rows.push({
+        lastname: line[0],
+        firstname: line[1],
+        gender: line[2],
+        favoritecolor: line[3],
+        dateofbirth: line[4]
+      });
+    }
   }
   
   sortBy(field) {

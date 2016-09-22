@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/dapuck/GRCodingExam#readme",
   "dependencies": {
+    "express": "^4.14.0",
     "nomnom": "^1.8.1"
   },
   "devDependencies": {
