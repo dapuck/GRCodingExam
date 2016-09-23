@@ -14,7 +14,13 @@ Run tests
 
 Command line
 
-`node index.js <pipe delimited> <comma delimited> <space delimited>`
+```
+Usage: node index.js <file1> <file2> <file3>
+
+file1     Pipe delimited file
+file2     Comma delimited file
+file3     Space delimited file
+```
 
 Start server
 
