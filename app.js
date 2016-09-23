@@ -16,14 +16,14 @@ app.post('/records', (req, res) => {
   let row = req.body.row;
   console.log(`row: ${row}, delimiter: ${delim}`);
   file.addRow(row,delim);
-  console.log(file.rows.length);
-  res.send("ok");
+//  console.log(file.rows.length);
+  res.send({status:"ok", count: file.rows.length});
 });
 
 app.get('/records/:field', (req, res) => {
   let data = file.sortBy(req.params.field);
-  console.log(data);
-  res.send(JSON.stringify(data));
+//  console.log(data);
+  res.send(data);
 });
 
 app.listen(8080, () => {
