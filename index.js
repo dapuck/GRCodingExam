@@ -10,21 +10,24 @@ const options = require("nomnom")
       required: true,
       transform: (filename) => {
         return path.resolve(filename);
-      }
+      },
+      help: "Pipe delimited file"
     },
     "file2": {
       position: 1,
       required: true,
       transform: (filename) => {
         return path.resolve(filename);
-      }
+      },
+      help: "Comma delimited file"
     },
     "file3": {
       position: 2,
       required: true,
       transform: (filename) => {
         return path.resolve(filename);
-      }
+      },
+      help: "Space delimited file"
     }
   })
   .parse();
