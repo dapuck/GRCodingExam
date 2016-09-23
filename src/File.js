@@ -15,7 +15,7 @@ class File {
           return reject(err);
         let lines = data.toString().split(/\r?\n/);
         for(let i = 0; i < lines.length; i++) {
-          this.addRow(lines[i]);
+          this.addRow(lines[i],delimiter);
         }
         return resolve();
       });
@@ -23,6 +23,17 @@ class File {
   }
   
   addRow(str,delimiter) {
+    switch(delimiter) {
+      case "pipe":
+        delimiter = "|";
+        break;
+      case "comma":
+        delimiter = ",";
+        break;
+      case "space":
+        delimiter = " ";
+        break;
+    }
     let line = str.split(delimiter);
     if(line.length === 5) {
       this.rows.push({
